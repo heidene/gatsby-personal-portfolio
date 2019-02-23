@@ -1,0 +1,34 @@
+{
+  "home.title": {
+    "origin": [
+      [
+        "src/pages/index.js",
+        34
+      ]
+    ]
+  },
+  "about.title": {
+    "origin": [
+      [
+        "src/pages/index.js",
+        35
+      ]
+    ]
+  },
+  "skillset.title": {
+    "origin": [
+      [
+        "src/pages/index.js",
+        36
+      ]
+    ]
+  },
+  "contact.title": {
+    "origin": [
+      [
+        "src/pages/index.js",
+        38
+      ]
+    ]
+  }
+}

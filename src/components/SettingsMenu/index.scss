@@ -1,0 +1,87 @@
+.settings-menu {
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  grid-row-gap: 0.7rem;
+  z-index: 50;
+  margin-bottom: 15px;
+  transition: bottom 1.5s;
+}
+
+.elevated {
+  bottom: 2rem;
+}
+
+.icons {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.icon {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: block;
+}
+.icon_default {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.icon_default.open {
+  transform: rotate(180deg) scale(0.5);
+  opacity: 0;
+}
+
+.icon_active {
+  transition: opacity 0.3s, transform 0.3s;
+  transform: rotate(-180deg) scale(0.5);
+  opacity: 0;
+}
+
+.icon_active.open {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+}
+
+.settings-menu__setting {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  opacity: 0;
+  //z-index: 0;
+}
+
+.settings-menu__setting > span {
+  opacity: 0;
+  overflow: hidden;
+}
+
+.settings-menu.heightMini .settings-menu__setting {
+  bottom: 0;
+  right: 0;
+}
+
+.settings-menu__main-btn {
+  position: relative;
+  z-index: 5;
+  bottom: 0;
+  right: 0;
+}
+
+.settings-menu__setting > span {
+  margin-right: 0.7rem;
+  padding: 0.3rem;
+  background: rgba($color: #f2f2f2, $alpha: 0.7);
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.settings-menu__setting .settings-menu__lang-selected {
+  background: rgba($color: #ff8d0b, $alpha: 0.7);
+}

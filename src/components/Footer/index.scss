@@ -1,0 +1,14 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 2rem;
+  background-color: antiquewhite;
+  max-width: 100%;
+  padding: 0 10px;
+}
+
+footer > span {
+  line-height: 2rem;
+}

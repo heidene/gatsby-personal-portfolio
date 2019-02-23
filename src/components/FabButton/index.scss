@@ -1,0 +1,84 @@
+.fab-btn {
+  height: 56px;
+  width: 56px;
+  z-index: 5;
+  border-radius: 50%;
+  background-color: rgb(204, 245, 255);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  background-position: center;
+  transition: background 0.8s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fab-btn.blue {
+  background-color: rgb(53, 53, 170);
+}
+
+.fab-btn.yellow {
+  background-color: rgb(255, 230, 0);
+}
+
+.fab-btn.fab-btn:focus {
+  outline: none;
+}
+
+.corner_stick {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+
+.fab-btn:hover {
+  background: rgb(157, 235, 255)
+    radial-gradient(circle, transparent 1%, rgb(157, 235, 255) 1%) center/15000%;
+}
+
+.fab-btn.blue:hover {
+  background: rgb(101, 101, 255)
+    radial-gradient(circle, transparent 1%, rgb(101, 101, 255) 1%) center/15000%;
+}
+
+.fab-btn.yellow:hover {
+  background: rgb(245, 255, 157)
+    radial-gradient(circle, transparent 1%, rgb(245, 255, 157) 1%) center/15000%;
+}
+
+.fab-btn:active {
+  background-color: rgb(46, 213, 255);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.fab-btn.blue:active {
+  background-color: rgb(54, 54, 182);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.fab-btn.yellow:active {
+  background-color: rgb(179, 176, 0);
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.fab-btn.fab-btn__mini {
+  height: 40px;
+  width: 40px;
+}
+
+.fab-btn:focus {
+  outline: none;
+}
+
+@media (hover: none) {
+  .fab-btn:hover {
+    background-color: rgb(204, 245, 255);
+  }
+}
+
+.disabled {
+}

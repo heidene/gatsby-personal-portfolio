@@ -1,0 +1,19 @@
+.parallax {
+  width: 100vw;
+  max-width: 100%;
+  //height: 100vh;
+  //max-height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fullscreenContent {
+  height: inherit;
+  overflow: hidden;
+  > div {
+    position: relative;
+    height: inherit;
+  }
+}

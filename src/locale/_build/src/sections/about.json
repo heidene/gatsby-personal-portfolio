@@ -1,0 +1,74 @@
+{
+  "about.title": {
+    "origin": [
+      [
+        "src/sections/about.js",
+        45
+      ]
+    ]
+  },
+  "about.text.subtitle": {
+    "origin": [
+      [
+        "src/sections/about.js",
+        55
+      ]
+    ]
+  },
+  "about.text.me": {
+    "origin": [
+      [
+        "src/sections/about.js",
+        56
+      ]
+    ]
+  },
+  "about.text.hobbytitle": {
+    "origin": [
+      [
+        "src/sections/about.js",
+        57
+      ]
+    ]
+  },
+  "about.text.hobby": {
+    "origin": [
+      [
+        "src/sections/about.js",
+        58
+      ]
+    ]
+  },
+  "about.text.hobby.1": {
+    "origin": [
+      [
+        "src/sections/about.js",
+        60
+      ]
+    ]
+  },
+  "about.text.hobby.2": {
+    "origin": [
+      [
+        "src/sections/about.js",
+        61
+      ]
+    ]
+  },
+  "about.text.hobby.3": {
+    "origin": [
+      [
+        "src/sections/about.js",
+        62
+      ]
+    ]
+  },
+  "about.text.hobby.4": {
+    "origin": [
+      [
+        "src/sections/about.js",
+        63
+      ]
+    ]
+  }
+}

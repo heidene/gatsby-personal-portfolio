@@ -1,0 +1,34 @@
+{
+  "contact.title": {
+    "origin": [
+      [
+        "src/sections/contact.js",
+        94
+      ]
+    ]
+  },
+  "contact.subtitle": {
+    "origin": [
+      [
+        "src/sections/contact.js",
+        106
+      ]
+    ]
+  },
+  "contact.social_media": {
+    "origin": [
+      [
+        "src/sections/contact.js",
+        112
+      ]
+    ]
+  },
+  "footer": {
+    "origin": [
+      [
+        "src/sections/contact.js",
+        126
+      ]
+    ]
+  }
+}

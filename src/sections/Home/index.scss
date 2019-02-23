@@ -1,0 +1,150 @@
+@import "../../Sass/tools";
+
+.section_home {
+  background-color: #011a21;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 71px;
+  padding: 3rem 1rem 0 1rem;
+  height: 100vh !important;
+}
+
+.section_home canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  widows: 100vw;
+}
+
+.section_home .mountains {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100%;
+  //background-image: url(../../assets/Background.svg);
+  background-image: linear-gradient(to top, #011a21 20%, transparent);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  z-index: 1;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.home__avatar {
+  border-radius: 50%;
+  width: 60%;
+  max-height: 300px;
+  max-width: 300px;
+  overflow: hidden;
+  grid-row-end: span 2;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.home__text {
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.home__name {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.home__name * {
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #db0000;
+}
+
+.home__slogan {
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: #db0000;
+}
+
+.home__slogan__emphasis {
+  color: black;
+  background-color: yellow;
+  padding: 4px;
+}
+
+.home__initial {
+  opacity: 0;
+  display: inline-block;
+}
+
+.home__anim__fadeIn {
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  @include animation-keyframes {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -100%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+.home__anime__surname {
+  animation-delay: 0.8s;
+}
+
+.home__anime__slogan {
+  animation-delay: 1.6s;
+}
+
+.home__anim__flipInX {
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-delay: 2.4s;
+  backface-visibility: visible !important;
+  @include animation-keyframes {
+    from {
+      transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
+
+    40% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+      animation-timing-function: ease-in;
+    }
+
+    60% {
+      transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+      opacity: 1;
+    }
+
+    80% {
+      transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    }
+
+    to {
+      transform: perspective(400px);
+      opacity: 1;
+    }
+  }
+}

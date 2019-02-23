@@ -1,0 +1,52 @@
+$hamburger_width: 2rem;
+
+.hamburger-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 1.8rem;
+  width: $hamburger_width;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+  z-index: 300;
+}
+
+.hamburger-btn:hover,
+.hamburger-btn:active,
+.hamburger-btn:focus {
+  outline: none;
+}
+
+.hamburger-btn.open {
+  justify-content: center;
+}
+
+.hamburger-btn.open span:nth-child(1) {
+  transform: rotate(135deg);
+}
+
+.hamburger-btn.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.open span:nth-child(3) {
+  transform: rotate(-135deg);
+}
+
+.hamburger-btn__line {
+  position: relative;
+  width: $hamburger_width;
+  height: 4px;
+  background: black;
+  border-radius: 10px;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.hamburger-btn.open .hamburger-btn__line {
+  position: absolute;
+}

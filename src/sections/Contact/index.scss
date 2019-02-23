@@ -1,0 +1,93 @@
+.section_contact {
+  background-image: url(../../assets/Background_Contact.svg);
+}
+
+.section_contact a {
+}
+
+.section_contact__soc-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.section_contact__soc-btns a {
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.3rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12),
+    0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background 0.8s;
+  background-position: center;
+}
+
+.section_contact__soc-btns a:hover {
+  background: #d4d4d4 radial-gradient(circle, transparent 1%, #d4d4d4 1%)
+    center/15000%;
+}
+
+.section_contact__soc-btns a:active {
+  background-color: #818181;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+.section_contact a:link,
+.section_contact a:visited,
+.section_contact a:hover,
+.section_contact a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.section_contact a:focus {
+  outline: none;
+}
+
+.section_contact__info a {
+  font-weight: 700;
+  text-decoration: underline !important;
+}
+
+@media (hover: none) {
+  .section_contact__soc-btns a:hover {
+    background-color: white;
+  }
+}
+
+.section_contact__soc {
+  position: relative;
+  top: 0;
+}
+
+.section_contact__soc_divider {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  > hr {
+    width: 100%;
+  }
+  > svg {
+    margin: 0 1rem;
+  }
+}
+
+.section_contact__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2.5rem;
+}
+
+.section_contact__content form {
+  flex: 1;
+}

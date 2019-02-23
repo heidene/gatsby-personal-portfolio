@@ -1,0 +1,26 @@
+{
+  "Scroll Locked": {
+    "origin": [
+      [
+        "src/components/settingsMenu/index.js",
+        100
+      ]
+    ]
+  },
+  "Nederlands": {
+    "origin": [
+      [
+        "src/components/settingsMenu/index.js",
+        106
+      ]
+    ]
+  },
+  "English": {
+    "origin": [
+      [
+        "src/components/settingsMenu/index.js",
+        111
+      ]
+    ]
+  }
+}

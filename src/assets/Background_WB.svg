@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 1600 900"
+   version="1.1"
+   id="svg28"
+   sodipodi:docname="Background_WB.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <metadata
+     id="metadata34">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs32" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1644"
+     inkscape:window-height="1018"
+     id="namedview30"
+     showgrid="false"
+     inkscape:zoom="0.216875"
+     inkscape:cx="94.524496"
+     inkscape:cy="634.43804"
+     inkscape:window-x="0"
+     inkscape:window-y="36"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg28" />
+  <polygon
+     fill="#df2935"
+     points="957 450 539 900 1396 900"
+     id="polygon4" />
+  <polygon
+     fill="#f9dc5c"
+     points="957 450 872.9 900 1396 900"
+     id="polygon6" />
+  <polygon
+     fill="#d22788"
+     points="-60 900 398 662 816 900"
+     id="polygon8" />
+  <polygon
+     fill="#e67147"
+     points="337 900 398 662 816 900"
+     id="polygon10" />
+  <polygon
+     fill="#b42cbe"
+     points="1203 546 1552 900 876 900"
+     id="polygon12" />
+  <polygon
+     fill="#cc3861"
+     points="1203 546 1552 900 1162 900"
+     id="polygon14" />
+  <polygon
+     fill="#652fac"
+     points="641 695 886 900 367 900"
+     id="polygon16" />
+  <polygon
+     fill="#9d3f8d"
+     points="587 900 641 695 886 900"
+     id="polygon18" />
+  <polygon
+     fill="#31399b"
+     points="1710 900 1401 632 1096 900"
+     id="polygon20" />
+  <polygon
+     fill="#604271"
+     points="1710 900 1401 632 1365 900"
+     id="polygon22" />
+  <polygon
+     fill="#33658a"
+     points="1210 900 971 687 725 900"
+     id="polygon24" />
+  <polygon
+     fill="#403f4c"
+     points="943 900 1210 900 971 687"
+     id="polygon26" />
+</svg>

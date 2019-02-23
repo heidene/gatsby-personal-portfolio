@@ -1,0 +1,44 @@
+.section {
+  padding: 3rem 1rem 1rem 1rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
+  min-height: 480px;
+}
+
+.section > div {
+  max-width: 768px;
+}
+
+.section__title {
+  width: 100%;
+}
+
+.section__title > div {
+  display: flex;
+  align-items: center;
+}
+
+.section__title > div > h1 {
+  margin-left: 0.5rem;
+}
+
+.section__title > hr {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.section__content {
+  width: 100%;
+}
+
+@media screen and (max-height: 730px) {
+  * {
+    font-size: 14px;
+  }
+}

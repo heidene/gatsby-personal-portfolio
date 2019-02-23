@@ -1,0 +1,26 @@
+{
+  "skillset.title": {
+    "origin": [
+      [
+        "src/sections/skillset.js",
+        88
+      ]
+    ]
+  },
+  "skillset.cvPDFBtn": {
+    "origin": [
+      [
+        "src/sections/skillset.js",
+        107
+      ]
+    ]
+  },
+  "skillset.cvWebBtn": {
+    "origin": [
+      [
+        "src/sections/skillset.js",
+        111
+      ]
+    ]
+  }
+}

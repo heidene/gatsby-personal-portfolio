@@ -1,0 +1,51 @@
+@import "../../Sass/tools";
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: rgba($color: #ffffff, $alpha: 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 2.5rem;
+  padding: 0 10px;
+  z-index: 100;
+}
+
+.headerTitle {
+  font-size: 1rem;
+  font-weight: 200;
+  opacity: 0;
+}
+
+.fadeIn {
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  @include animation-keyframes {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+.fadeOut {
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  @include animation-keyframes {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}

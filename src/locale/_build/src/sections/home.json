@@ -1,0 +1,26 @@
+{
+  "home.sub_title_section1": {
+    "origin": [
+      [
+        "src/sections/home.js",
+        132
+      ]
+    ]
+  },
+  "home.sub_title_emphasis": {
+    "origin": [
+      [
+        "src/sections/home.js",
+        132
+      ]
+    ]
+  },
+  "home.sub_title_section2": {
+    "origin": [
+      [
+        "src/sections/home.js",
+        132
+      ]
+    ]
+  }
+}

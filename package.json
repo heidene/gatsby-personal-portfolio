@@ -1,0 +1,84 @@
+{
+  "name": "portfolio",
+  "private": true,
+  "description": "Personal portfolio",
+  "version": "1.0.0",
+  "author": "Nico Vandenhove <nico@vandenhove.me>",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.13",
+    "@fortawesome/free-brands-svg-icons": "^5.7.0",
+    "@fortawesome/free-solid-svg-icons": "^5.7.0",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "@lingui/react": "^2.7.3",
+    "animejs": "^3.0.1",
+    "formik": "^1.5.1",
+    "gatsby": "^2.0.105",
+    "gatsby-image": "^2.0.20",
+    "gatsby-plugin-manifest": "^2.0.15",
+    "gatsby-plugin-offline": "^2.0.22",
+    "gatsby-plugin-react-helmet": "^3.0.2",
+    "gatsby-plugin-sass": "^2.0.8",
+    "gatsby-plugin-sharp": "^2.0.19",
+    "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-transformer-json": "^2.1.8",
+    "gatsby-transformer-sharp": "^2.1.13",
+    "lodash": "^4.17.11",
+    "node-sass": "^4.11.0",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-google-recaptcha-v3": "^1.0.0",
+    "react-helmet": "^5.2.0",
+    "react-obfuscate": "^3.0.0",
+    "react-particles-js": "^2.4.2",
+    "react-redux": "^6.0.0",
+    "react-sizes": "^1.0.4",
+    "react-visibility-sensor": "^5.0.2",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.1",
+    "typeface-roboto": "0.0.54",
+    "velocity-animate": "^1.5.2",
+    "velocity-react": "^1.4.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop --verbose",
+    "develop-m": "gatsby develop -H 192.168.0.114 -p 8000 --verbose",
+    "start": "npm run develop",
+    "serve": "gatsby serve -H 192.168.0.114 -p 8000",
+    "lingui_extract": "BABEL_ENV=extract lingui extract --clean",
+    "lingui_compile": "lingui compile",
+    "eslint": "eslint"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-google": "^0.11.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-react": "^7.12.4",
+    "eyeglass": "^2.0.0",
+    "prettier-eslint": "^8.8.2",
+    "bourbon": "^5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heidene/gatsby-portfolio"
+  },
+  "lingui": {
+    "fallbackLocale": "nl",
+    "sourceLocale": "nl",
+    "localeDir": "src/locale",
+    "srcPathDirs": [
+      "src/"
+    ],
+    "srcPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "format": "minimal"
+  }
+}

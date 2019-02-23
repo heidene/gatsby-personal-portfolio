@@ -1,0 +1,59 @@
+body,
+html {
+  -ms-overflow-style: none; // IE 10+
+  overflow: "-moz-scrollbars-none"; // Firefox
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  display: none; // Safari and Chrome
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-family: "Anonymous Pro", monospace;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus {
+  outline: none;
+}
+
+#___gatsby {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  > div {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    > main {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+  display: none;
+}

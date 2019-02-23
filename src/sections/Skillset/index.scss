@@ -1,0 +1,21 @@
+.section_skillset {
+  //background-image: url(../../assets/Background_Skillset.svg);
+  background-color: black;
+  color: #ffffff;
+}
+
+.skillset_skill {
+  margin-top: 0.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.skillset__buttons {
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-icon {
+  margin-right: 0.3rem;
+}

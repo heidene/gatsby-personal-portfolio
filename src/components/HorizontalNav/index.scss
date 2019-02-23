@@ -1,0 +1,42 @@
+.h-menu__list {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+}
+
+.h-menu__list li {
+  padding: 0 5px;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.h-menu__list .h-menu__magic-line {
+  position: absolute;
+  height: 2.5rem;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform-origin: 0% 50% 0;
+  //border-bottom: 1px solid black;
+  background: rgba(197, 6, 6, 0.35);
+  z-index: 1;
+}
+
+.h-menu__list .h-menu__list-item > button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  margin: 0 8px;
+  font-size: 1.5rem;
+}
+
+.h-menu__active {
+  //background-color: greenyellow;
+}

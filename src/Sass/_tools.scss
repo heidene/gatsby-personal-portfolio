@@ -1,0 +1,9 @@
+@mixin animation-keyframes {
+  $name: unique-id();
+  animation-name: $name;
+  @at-root {
+    @keyframes #{$name} {
+      @content;
+    }
+  }
+}
