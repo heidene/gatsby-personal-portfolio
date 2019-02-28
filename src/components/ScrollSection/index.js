@@ -14,26 +14,11 @@ class ScrollSection extends React.Component {
       content: this.props.content,
       onWheel: this.props.onWheel,
       index: this.props.index,
-      viewheight: 2000,
       setIndex: this.props.setIndex,
       navigating: this.props.navigating,
       classes: this.props.classes,
     };
     this._onChange = this._onChange.bind(this);
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
-
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ viewheight: window.innerHeight });
   }
 
   _onChange(isVisible) {
@@ -47,15 +32,21 @@ class ScrollSection extends React.Component {
   }
 
   render() {
-    const { children, onTouchStart, onTouchMove, onTouchEnd } = this.props;
+    const {
+      children,
+      onTouchStart,
+      onTouchMove,
+      onTouchEnd,
+      viewheight,
+    } = this.props;
     return (
       <VisibilitySensor
         onChange={this._onChange}
         scrollCheck={true}
         partialVisibility={true}
         offset={{
-          top: this.state.viewheight / 2,
-          bottom: this.state.viewheight / 2,
+          top: viewheight / 2,
+          bottom: viewheight / 2,
         }}
       >
         <div
