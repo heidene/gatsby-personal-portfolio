@@ -1,0 +1,67 @@
+$dark: #000;
+$light: #fff;
+$color: #003949;
+$color-secondary: #ff6565;
+$color-background: #e7fdf7;
+
+$theme-color-key: "base" !default;
+
+$theme-colors: (
+  "primary": (
+    "base": #003949,
+    "light": #0d90b4,
+    "dark": #00232c
+  ),
+  "accent": (
+    "base": #ff2b2b,
+    "light": #ff6565,
+    "dark": #c60000
+  ),
+  "foreground": (
+    "base": #393939,
+    "light": #6e6e6e,
+    "dark": #111
+  ),
+  "background": (
+    "base": #f8f5f5,
+    "light": #fff,
+    "dark": #ddd
+  ),
+  "green": (
+    "base": #d0f0ca,
+    "light": #e5ffe1,
+    "dark": #647f5f
+  )
+);
+
+$theme-opacity: (
+  "light": 0.8,
+  "dark": 0.4,
+  "elavated": 0.23
+);
+
+@function theme-color(
+  $name: "primary",
+  $variant: $theme-color-key,
+  $opacity: 1
+) {
+  $color: null;
+
+  $color-spectrum: map-get($theme-colors, $name);
+
+  @if $color-spectrum {
+    $color: map-get($color-spectrum, $variant);
+  }
+
+  $alpha: if(
+    type-of($opacity) == "number",
+    $opacity,
+    map-get($theme-opacity, $opacity)
+  );
+
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
+
+  @return $color;
+}

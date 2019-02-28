@@ -1,9 +1,11 @@
+@import "../../Sass/theme";
+
 .btn {
   border: none;
   font-size: 1rem;
   text-transform: uppercase;
   cursor: pointer;
-  color: white;
+  color: theme-color("foreground", "dark");
   outline: none;
   background: transparent;
   font-weight: 700;
@@ -14,8 +16,9 @@
 }
 
 .btn.contained {
-  background-color: #2196f3;
-  box-shadow: 0 0 4px #999;
+  //background-color: #2196f3;
+  background-color: theme-color("accent");
+  box-shadow: 0 0 4px theme-color("accent", "dark", "dark");
   background-position: center;
   transition: background 0.8s;
   border-radius: 2px;
@@ -27,21 +30,28 @@
 }
 
 .btn.contained:disabled {
-  background-color: #8d8d8d;
+  //background-color: #8d8d8d;
+  background-color: theme-color("accent", "dark");
   cursor: not-allowed;
 }
 
 .btn.contained:disabled:hover {
-  background-color: #8d8d8d;
+  //background-color: #8d8d8d;
+  background-color: theme-color("accent", "dark");
 }
 
 .btn.contained:hover {
-  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+  background: theme-color("accent", "dark")
+    radial-gradient(
+      circle,
+      transparent 1%,
+      theme-color("accent", "dark", "dark") 1%
+    )
     center/15000%;
 }
 
 .btn.contained:active {
-  background-color: #6eb9f7;
+  background-color: theme-color("accent", "light");
   background-size: 100%;
   transition: background 0s;
 }

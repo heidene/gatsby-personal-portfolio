@@ -1,7 +1,98 @@
-.section_about {
-  background-image: url(../../assets/Background_About.svg);
+@import "../../Sass/theme";
+
+.about {
+  .about__nvector,
+  .about__vvector {
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    z-index: -1;
+  }
+  .about__nvector {
+    fill: theme-color("primary", "light");
+    bottom: 0;
+  }
+  .about__vvector {
+    fill: theme-color("accent", "light");
+    top: 0;
+    right: 0;
+  }
 }
 
-.section__content ul {
-  //list-style-position: inside;
+.about__subtitle {
+  margin-bottom: 1rem;
+}
+
+.about__hobbies {
+  margin-top: 1rem;
+  li {
+    margin: 0.5rem 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    svg {
+      color: theme-color("accent", "light");
+    }
+  }
+}
+
+.about__quote {
+  position: relative;
+  display: inline-block;
+  text-align: right;
+  background-color: theme-color("background", "light");
+  padding: 2rem;
+  margin: 1rem 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  box-shadow: 0 2px 2px 0 theme-color("background", "dark", "light"),
+    0 1px 5px 0 theme-color("background", "dark", "light"),
+    0 3px 1px -2px theme-color("background", "dark", "dark");
+  span {
+    display: block;
+  }
+
+  .about__quote__text {
+    position: relative;
+    color: theme-color("primary");
+    z-index: 2;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .about__quote__text::before,
+  .about__quote__text::after {
+    font-size: 5rem;
+    color: theme-color("accent", "light");
+    position: absolute;
+    z-index: -1;
+  }
+
+  .about__quote__text::before {
+    content: open-quote;
+    top: -30px;
+    left: -25px;
+  }
+
+  .about__quote__text::after {
+    content: close-quote;
+    right: -20px;
+    top: -15px;
+  }
+
+  .about__quote__cite {
+    color: theme-color("primary", "light");
+    position: relative;
+  }
+
+  .about__quote__cite::before {
+    content: "";
+    display: inline-block;
+    background-color: theme-color("primary", "light");
+    width: 20px;
+    height: 2px;
+    margin-bottom: 0.25rem;
+    margin-right: 0.25rem;
+  }
 }

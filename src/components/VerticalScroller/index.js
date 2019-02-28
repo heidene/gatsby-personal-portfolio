@@ -2,10 +2,16 @@ import React, { Component, Children } from 'react';
 import ConnectedScrollSection from '../ScrollSection';
 import PropTypes from 'prop-types';
 import { VelocityComponent } from 'velocity-react';
-import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { increment, decrement, endNav, setMaxIndex } from '../../actions';
+import {
+  increment,
+  decrement,
+  startNav,
+  endNav,
+  setMaxIndex,
+  setVerticalScrollHeight,
+} from '../../actions';
 
 import './index.scss';
 
@@ -13,58 +19,45 @@ class VerticalScroller extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sections: props.sections,
-      scrollLocked:
-        typeof props.scrollLocked !== 'undefined' ? props.scrollLocked : true,
-      done: true,
-      lastScrolled: {},
-      currentIndex: props.index,
-      wheel: false,
-      parentNode: null,
-      increment: props.increment,
-      decrement: props.decrement,
-      endNav: props.endNav,
-      maxIndex: props.maxIndex,
+      viewheight: 0,
     };
-    this._renderSections = this._renderSections.bind(this);
-    this._wheeled = this._wheeled.bind(this);
-    this._scroll = this._scroll.bind(this);
-    this._wrapVelocityComponent = this._wrapVelocityComponent.bind(this);
-    this._resetPosition = this._resetPosition.bind(this);
+    this.vScrollerRef = React.createRef();
     this._throttledCalcDelta = _.throttle(this._calcDelta, 100);
-  }
-
-  _resetPosition() {
-    this.forceUpdate();
+    this._throttledScroll = _.throttle(this._scroll, 500);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
-    const parentNode = ReactDOM.findDOMNode(this);
-    if (window) window.addEventListener('resize', this._resetPosition);
-    this.setState({ parentNode: parentNode });
+    this.props.setVerticalScrollHeight(this.vScrollerRef.current.clientHeight);
     this.props.setMaxIndex(Children.count(this.props.children) - 1);
+    this.updateWindowDimensions();
+    window.addEventListener('resize', this.updateWindowDimensions);
   }
 
   componentWillUnmount() {
-    if (window) window.removeEventListener('resize', this._resetPosition);
+    window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
-  _wrapVelocityComponent(section, index) {
+  updateWindowDimensions() {
+    this.props.setVerticalScrollHeight(window.innerHeight);
+    this.setState({ viewheight: window.innerHeight });
+  }
+
+  _wrapVelocityComponent = (section, index) => {
     return (
       <VelocityComponent
         key={index}
         animation={
-          (this.state.scrollLocked || this.state.navigating) &&
-          index === this.state.currentIndex
+          (this.props.scrollLocked || this.props.navigating) &&
+          index === this.props.index
             ? 'scroll'
             : null
         }
         duration={1300}
         complete={() => {
-          this.setState({ done: true });
-          this.state.endNav();
+          this.props.endNav();
         }}
-        container={this.state.parentNode}
+        container={this.props.scrollLocked ? this.vScrollerRef.current : null}
       >
         <ConnectedScrollSection
           id={'scrollsection' + index}
@@ -73,53 +66,48 @@ class VerticalScroller extends Component {
           onTouchStart={this._handleTouchStart}
           onTouchMove={this._handleTouchMove}
           onTouchEnd={this._handleTouchEnd}
+          viewheight={this.state.viewheight}
         >
           {section}
         </ConnectedScrollSection>
       </VelocityComponent>
     );
-  }
+  };
 
   yCoord = 0;
   touchState = false;
 
   _handleTouchStart = (event) => {
-    if (this.state.scrollLocked) {
-      console.log('TOUCH START');
+    if (this.props.scrollLocked) {
       this.yCoord = event.touches[0].clientY;
       this.touchState = true;
     }
   };
 
-  _calcDelta = (event, yCoord) => {
-    const currentYCoord = event.touches[0].clientY;
-    const deltaY = yCoord - currentYCoord;
-    console.log(yCoord, ' - ', currentYCoord, ' = ', deltaY);
-    this.yCoord = currentYCoord;
+  _calcDelta = (deltaY) => {
     if (this.touchState) {
-      this._scroll(deltaY);
+      this._throttledScroll(deltaY);
     }
   };
 
   _handleTouchMove = (event) => {
-    if (this.state.scrollLocked) {
+    if (this.props.scrollLocked) {
+      const currentYCoord = event.touches[0].clientY;
+      const deltaY = this.yCoord - currentYCoord;
+      this.yCoord = currentYCoord;
       event.persist();
-      this._throttledCalcDelta(event, this.yCoord);
-      // if (this.yCoord > currentYCoord + 5) {
-      // } else if (this.yCoord < currentYCoord - 5) {
-      // }
+      this._throttledCalcDelta(deltaY);
     }
   };
 
   _handleTouchEnd = (event) => {
-    if (this.state.scrollLocked) {
-      console.log('TOUCH END');
+    if (this.props.scrollLocked) {
       this.yCoord = 0;
       this.touchState = false;
     }
   };
 
-  _renderSections(sections) {
+  _renderSections = (sections) => {
     if (sections && typeof sections.isArray === 'undefined') {
       const renderedSections = Children.map(sections, (section, index) =>
         this._wrapVelocityComponent(section, index)
@@ -127,56 +115,36 @@ class VerticalScroller extends Component {
       return renderedSections;
     }
     return null;
-  }
+  };
 
-  _wheeled(e) {
-    if (this.state.scrollLocked) {
+  _wheeled = (e) => {
+    if (this.props.scrollLocked) {
       e.stopPropagation();
-      this._scroll(e.deltaY);
+      this._throttledScroll(e.deltaY);
     }
-  }
+  };
 
-  _scroll(deltaY) {
-    if (this.state.done) {
-      let done = false;
-      let nextIndex = this.state.currentIndex;
+  _scroll = (deltaY) => {
+    if (!this.props.navigating) {
       if (deltaY > 0) {
-        if (this.state.currentIndex < this.state.maxIndex) {
-          ++nextIndex;
-          this.state.increment();
-        } else {
-          done = true;
+        if (this.props.index < this.props.maxIndex) {
+          this.props.startNav();
+          this.props.increment();
         }
       } else {
-        if (this.state.currentIndex !== 0) {
-          --nextIndex;
-          this.state.decrement();
-        } else {
-          done = true;
+        if (this.props.index !== 0) {
+          this.props.startNav();
+          this.props.decrement();
         }
       }
-      this.setState({
-        done: done,
-        // lastScrolled: e.target.parentNode.id,
-        currentIndex: nextIndex,
-      });
     }
-  }
-
-  componentWillReceiveProps(props) {
-    this.setState({
-      currentIndex: props.index,
-      maxIndex: props.maxIndex,
-      scrollLocked: props.scrollLocked,
-      navigating: props.navigating,
-    });
-  }
+  };
 
   render() {
-    const stateClass = this.state.scrollLocked ? 'scrollLocked' : 'freescroll';
-    const { children } = this.props;
+    const { children, scrollLocked } = this.props;
+    const stateClass = scrollLocked ? 'scrollLocked' : 'freescroll';
     return (
-      <div className={`verticalScroller ${stateClass}`}>
+      <div ref={this.vScrollerRef} className={`verticalScroller ${stateClass}`}>
         {this._renderSections(children)}
       </div>
     );
@@ -202,5 +170,12 @@ const mapStateToProps = (state) => {
 
 export default connect(
     mapStateToProps,
-    { increment, decrement, endNav, setMaxIndex }
+    {
+      increment,
+      decrement,
+      startNav,
+      endNav,
+      setMaxIndex,
+      setVerticalScrollHeight,
+    }
 )(VerticalScroller);

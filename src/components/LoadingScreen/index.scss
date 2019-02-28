@@ -1,7 +1,9 @@
+@import "../../Sass/theme";
+
 .loading-screen {
   width: 100%;
   height: 100%;
-  background-color: #011a21;
+  background-color: theme-color("background");
   z-index: 1000;
   position: relative;
   display: flex;
@@ -17,7 +19,7 @@
 }
 
 .loading-screen__text {
-  color: white;
+  color: theme-color("foreground");
 }
 
 .lds-grid {
@@ -31,7 +33,7 @@
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: #fff;
+  background: theme-color("primary");
   animation: lds-grid 1.2s linear infinite;
 }
 .lds-grid div:nth-child(1) {

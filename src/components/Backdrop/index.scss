@@ -1,9 +1,11 @@
+@import "../../Sass/theme";
+
 .backdrop {
   position: fixed;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
-  background-color: rgba($color: #000000, $alpha: 0.3);
+  background-color: theme-color("background", "dark", "dark");
   z-index: 100;
 }

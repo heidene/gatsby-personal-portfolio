@@ -58,4 +58,4 @@ Nav.propTypes = {
   isMobile: PropTypes.bool.isRequired,
 };
 
-export default withSizes((sizes) => ({ isMobile: sizes.width < 530 }))(Nav);
+export default withSizes((sizes) => ({ isMobile: sizes.width < 630 }))(Nav);

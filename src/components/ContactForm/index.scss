@@ -1,4 +1,5 @@
 @import "../../Sass/tools";
+@import "../../Sass/theme";
 
 .contact_form__div {
   position: relative;
@@ -53,12 +54,19 @@
 }
 
 .contact_form__div-success {
-  background-image: radial-gradient(#91ff00, #b8ff5c);
+  background-image: radial-gradient(
+    theme-color("green"),
+    theme-color("green", "light")
+  );
 }
 
 .contact_form__div-error {
   background-color: red;
-  background-image: radial-gradient(#ff3636, #ff4e4e);
+  background-image: radial-gradient(
+    theme-color("accent"),
+    theme-color("accent", "dark")
+  );
+  color: theme-color("background", "light");
 }
 
 .contact_form {
@@ -116,7 +124,7 @@
 .contact_form__input-group input,
 .contact_form__input-group textarea {
   border: none;
-  border-bottom: 1px solid #91ff00;
+  border-bottom: 1px solid theme-color("primary");
 }
 
 .contact_form__input-group label {
@@ -128,12 +136,12 @@
 }
 
 .contact_form__input-group input:focus ~ label,
-.contact_form__input-group input:valid ~ label,
+.contact_form__input-group .touched ~ label,
 .contact_form__input-group textarea:focus ~ label,
-.contact_form__input-group textarea:valid ~ label {
+.contact_form__input-group .touched ~ label {
   top: -20px;
   font-size: 0.8rem;
-  color: #5264ae;
+  color: theme-color("primary", "light");
 }
 
 .contact_form__input-group-bar {
@@ -148,7 +156,7 @@
   width: 0;
   bottom: 0;
   position: absolute;
-  background: #5264ae;
+  background: theme-color("primary", "light");
   transition: 0.2s ease all;
 }
 .contact_form__input-group-bar.textarea:before,
@@ -165,7 +173,7 @@
 .contact_form__input-group-bar.error:before,
 .contact_form__input-group-bar.error:after {
   width: 50%;
-  background: #ff3636;
+  background: theme-color("accent", "dark");
 }
 
 .contact_form__input-group input:focus ~ .contact_form__input-group-bar:before,

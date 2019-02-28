@@ -1,3 +1,4 @@
+@import "../../Sass/theme";
 $hamburger_width: 2rem;
 
 .hamburger-btn {
@@ -41,7 +42,7 @@ $hamburger_width: 2rem;
   position: relative;
   width: $hamburger_width;
   height: 4px;
-  background: black;
+  background: theme-color("foreground");
   border-radius: 10px;
   transform: rotate(0deg);
   transition: 0.25s ease-in-out;
@@ -49,4 +50,10 @@ $hamburger_width: 2rem;
 
 .hamburger-btn.open .hamburger-btn__line {
   position: absolute;
+}
+
+.hamburger-btn--light {
+  .hamburger-btn__line {
+    background: theme-color("background");
+  }
 }

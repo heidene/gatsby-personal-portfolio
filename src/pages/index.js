@@ -51,7 +51,7 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO title="Portfolio" keywords={[`gatsby`, `application`, `react`]} />
         <Header sections={this.state.sections} />
         {this._loading()}
         <VerticalScroller>

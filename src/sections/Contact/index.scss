@@ -1,23 +1,19 @@
-.section_contact {
-  background-image: url(../../assets/Background_Contact.svg);
-}
+@import "../../Sass/theme";
 
-.section_contact a {
-}
-
-.section_contact__soc-btns {
+.section-contact__soc-btns {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-top: 1rem;
+  padding: 1rem 0 1.5rem;
 }
 
-.section_contact__soc-btns a {
+.section-contact__soc-btns a {
   border-radius: 50%;
   width: 56px;
   height: 56px;
   background-color: white;
+  color: black !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,46 +25,47 @@
   background-position: center;
 }
 
-.section_contact__soc-btns a:hover {
+.section-contact__soc-btns a:hover {
   background: #d4d4d4 radial-gradient(circle, transparent 1%, #d4d4d4 1%)
     center/15000%;
 }
 
-.section_contact__soc-btns a:active {
+.section-contact__soc-btns a:active {
   background-color: #818181;
   background-size: 100%;
   transition: background 0s;
 }
 
-.section_contact a:link,
-.section_contact a:visited,
-.section_contact a:hover,
-.section_contact a:active {
+.section-contact a:link,
+.section-contact a:visited,
+.section-contact a:hover,
+.section-contact a:active {
   text-decoration: none;
-  color: inherit;
+  color: #c0c0c0;
 }
 
-.section_contact a:focus {
+.section-contact a:focus {
   outline: none;
 }
 
-.section_contact__info a {
+.section-contact .section-contact__info a {
+  color: theme-color("accent", "light");
   font-weight: 700;
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 
 @media (hover: none) {
-  .section_contact__soc-btns a:hover {
+  .section-contact__soc-btns a:hover {
     background-color: white;
   }
 }
 
-.section_contact__soc {
+.section-contact__soc {
   position: relative;
   top: 0;
 }
 
-.section_contact__soc_divider {
+.section-contact__soc_divider {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -81,13 +78,23 @@
   }
 }
 
-.section_contact__content {
+.section-contact .section__content {
   flex: 1;
   display: flex;
   flex-direction: column;
   padding-bottom: 2.5rem;
 }
 
-.section_contact__content form {
+.section-contact__content form {
   flex: 1;
+}
+
+.section-contact__belgium {
+  position: absolute;
+  top: 0;
+  left: 30%;
+  width: 100vw;
+  height: 100vw;
+  max-width: 800px;
+  max-height: 800px;
 }

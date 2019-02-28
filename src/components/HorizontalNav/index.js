@@ -174,10 +174,13 @@ class HorizontalNav extends Component {
         <li
           key={index}
           className={`h-menu__list-item ${
-            index === this.props.active ? 'h-menu__active' : ''
+            index === this.props.active ? 'h-menu__list-item--active' : ''
           }`}
         >
           <button
+            className={
+              this.props.heroVisible ? 'h-menu__list-item--contrast' : null
+            }
             onClick={() => this._handleItemClick(index)}
             onMouseEnter={() => {
               this._handleItemHover(index);
@@ -221,6 +224,7 @@ HorizontalNav.defaultProps = {
 
 const mapStateToProps = (state) => ({
   active: state.indexState.index,
+  heroVisible: state.ui.heroVisible,
   // selectedLanguage: state.locales.lang,
 });
 

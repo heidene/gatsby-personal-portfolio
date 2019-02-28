@@ -1,12 +1,18 @@
+@import "../../Sass/theme";
+
 footer {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100vw;
   height: 2rem;
-  background-color: antiquewhite;
+  background-color: theme-color("background", "dark");
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  color: theme-color("foreground");
   max-width: 100%;
   padding: 0 10px;
+  z-index: 1;
 }
 
 footer > span {

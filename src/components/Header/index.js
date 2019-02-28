@@ -1,43 +1,43 @@
-import React from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Navbar from '../Nav';
 
 import './index.scss';
+import Logo from './../../svgs/Logo_NV_Web.svg';
 
-class Header extends React.Component {
+class Header extends Component {
   initialRender = true;
 
   componentDidMount(props) {
     this.initialRender = false;
   }
 
-  shouldComponentUpdate(nextProps) {
-    if (this.props.index === nextProps.index) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  renderLogo(index) {
+  renderLogo(heroVisible) {
     let className = 'headerTitle';
     if (!this.initialRender) {
-      if (index > 0) {
+      if (!heroVisible) {
         className += ' fadeIn';
       } else {
         className += ' fadeOut';
       }
     }
-    return <span className={className}>Nico Vandenhove</span>;
+    return (
+      <Fragment>
+        <span className={className}>
+          <Logo className={`app-logo`} aria-label="logo" />
+          ico Vandenhove
+        </span>
+      </Fragment>
+    );
   }
 
   render() {
-    const { index, sections } = this.props;
+    const { heroVisible, sections } = this.props;
 
     return (
-      <header>
-        {this.renderLogo(index)}
+      <header className={`${heroVisible ? 'header--hide' : ''}`}>
+        {this.renderLogo(heroVisible)}
         <Navbar sections={sections} />
       </header>
     );
@@ -45,12 +45,12 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  index: PropTypes.number,
+  heroVisible: PropTypes.bool,
   sections: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = ({ indexState: { index } }) => {
-  return { index };
+const mapStateToProps = ({ ui: { heroVisible } }) => {
+  return { heroVisible };
 };
 
 export default connect(mapStateToProps)(Header);

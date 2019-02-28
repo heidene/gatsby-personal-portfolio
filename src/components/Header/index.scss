@@ -1,23 +1,41 @@
 @import "../../Sass/tools";
+@import "../../Sass/theme";
 
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  background: rgba($color: #ffffff, $alpha: 0.25);
+  background: theme-color("background");
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 2.5rem;
   padding: 0 10px;
   z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background 500ms, box-shadow 500ms;
+}
+
+.header--hide {
+  background: transparent;
+  box-shadow: none;
+}
+
+.app-logo {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 2px;
 }
 
 .headerTitle {
   font-size: 1rem;
-  font-weight: 200;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 900;
   opacity: 0;
+  display: flex;
+  align-items: center;
 }
 
 .fadeIn {

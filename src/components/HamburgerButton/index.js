@@ -1,13 +1,19 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import './index.scss';
 
-export default class HamburgerButton extends Component {
+class HamburgerButton extends Component {
   render() {
-    let className = 'hamburger-btn';
-    className += this.props.open ? ' open' : '';
+    const { open, click, heroVisible } = this.props;
     return (
-      <button className={className} onClick={this.props.click}>
+      <button
+        className={`hamburger-btn ${open ? 'open' : ''} ${
+          heroVisible ? 'hamburger-btn--light' : ''
+        }`}
+        onClick={click}
+      >
         <span className="hamburger-btn__line" />
         <span className="hamburger-btn__line" />
         <span className="hamburger-btn__line" />
@@ -15,3 +21,20 @@ export default class HamburgerButton extends Component {
     );
   }
 }
+
+HamburgerButton.propTypes = {
+  open: PropTypes.bool,
+  heroVisible: PropTypes.bool,
+  click: PropTypes.func,
+};
+
+HamburgerButton.defaultProps = {
+  open: false,
+  heroVisible: false,
+};
+
+const mapStateToProps = ({ ui: { heroVisible } }) => ({
+  heroVisible,
+});
+
+export default connect(mapStateToProps)(HamburgerButton);

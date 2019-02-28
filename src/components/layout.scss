@@ -1,7 +1,7 @@
 body,
 html {
   -ms-overflow-style: none; // IE 10+
-  overflow: "-moz-scrollbars-none"; // Firefox
+  overflow: -moz-scrollbars-none; // Firefox
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -12,7 +12,7 @@ html {
   margin: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  //overflow: hidden;
 }
 body {
   margin: 0;
@@ -24,11 +24,12 @@ body {
   display: none; // Safari and Chrome
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif;
   font-family: "Anonymous Pro", monospace;
   -webkit-tap-highlight-color: transparent;
 }
@@ -48,7 +49,7 @@ button:focus {
     > main {
       margin: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh;
     }
   }
 }
@@ -56,4 +57,10 @@ button:focus {
 .grecaptcha-badge {
   visibility: hidden;
   display: none;
+}
+
+@media screen and (max-height: 730px) and (max-width: 320px) {
+  * {
+    font-size: 14px;
+  }
 }

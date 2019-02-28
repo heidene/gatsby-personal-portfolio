@@ -1,7 +1,7 @@
 .verticalScroller {
   width: 100vw;
   max-width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .scrollLocked {
@@ -9,10 +9,14 @@
 }
 
 .freescroll {
-  overflow-y: auto;
+  //overflow-y: auto;
 }
 
 .verticalScroller.scrollLocked > div.parallax {
-  height: 100%;
+  min-height: 100vh;
   max-height: 100%;
+}
+
+.scrollLocked .fullscreenContent {
+  height: 100vh;
 }

@@ -7,3 +7,5 @@ export const ENDNAV = 'endnav';
 export const SET_LANG = 'set_lang';
 export const SET_SCROLLLOCK = 'set_scrolllock';
 export const DONE_LOADING = 'done_loading';
+export const SET_VERTICAL_HEIGHT = 'set_vertical_height';
+export const SET_HERO_VISIBLE = 'set_hero_visible';

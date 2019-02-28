@@ -7,27 +7,22 @@ import { Trans } from '@lingui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Obfuscate from 'react-obfuscate';
 import ContactForm from '../../components/ContactForm';
+import Section from '../../components/Section';
 
-// import background from '../assets/Background_Contact.svg';
+import Belgium from '../../svgs/Belgium.svg';
 
 import './index.scss';
 
 function ContactSection(props) {
-  const { isMobile, isTooSmall } = props;
-
   return (
-    <div className="section section_contact">
-      <div className="section__title">
-        <div>
-          <FontAwesomeIcon icon="id-card" size={isMobile ? '2x' : '3x'} />
-          <h1>
-            <Trans id="contact.title" />
-          </h1>
-        </div>
-        <hr />
-      </div>
-      <div className="section__content section_contact__content">
-        <div className="section_contact__info">
+    <React.Fragment>
+      <Section
+        icon="id-card"
+        title={<Trans id="contact.title" />}
+        className="section-contact"
+      >
+        <Belgium className="section-contact__belgium" />
+        <div className="section-contact__info">
           <span style={{ marginRight: 5 }}>
             <Trans id="contact.subtitle" />
           </span>
@@ -39,16 +34,13 @@ function ContactSection(props) {
           </span>
         </div>
         <ContactForm />
-        <div className="section_contact__soc">
-          {/* <h2>
-            <Trans id="contact.social_media" />
-          </h2> */}
-          <div className="section_contact__soc_divider">
+        <div className="section-contact__soc">
+          <div className="section-contact__soc_divider">
             <hr />
             <FontAwesomeIcon icon="link" />
             <hr />
           </div>
-          <div className="section_contact__soc-btns">
+          <div className="section-contact__soc-btns">
             <a href="https://www.linkedin.com/in/nicovandenhove">
               <FontAwesomeIcon icon={['fab', 'linkedin-in']} size="2x" />
             </a>
@@ -57,12 +49,12 @@ function ContactSection(props) {
             </a>
           </div>
         </div>
-      </div>
+      </Section>
       <Trans
         id="footer"
         render={({ translation }) => <Footer footerText={translation} />}
       />
-    </div>
+    </React.Fragment>
   );
 }
 

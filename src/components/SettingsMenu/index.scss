@@ -1,3 +1,5 @@
+@import "../../Sass/theme";
+
 .settings-menu {
   position: fixed;
   bottom: 0;
@@ -54,7 +56,6 @@
   justify-content: flex-end;
   align-items: center;
   opacity: 0;
-  //z-index: 0;
 }
 
 .settings-menu__setting > span {
@@ -77,11 +78,11 @@
 .settings-menu__setting > span {
   margin-right: 0.7rem;
   padding: 0.3rem;
-  background: rgba($color: #f2f2f2, $alpha: 0.7);
+  background: theme-color("background", "dark", "light");
   border-radius: 5px;
   white-space: nowrap;
 }
 
 .settings-menu__setting .settings-menu__lang-selected {
-  background: rgba($color: #ff8d0b, $alpha: 0.7);
+  background: theme-color("accent", "light", "light");
 }

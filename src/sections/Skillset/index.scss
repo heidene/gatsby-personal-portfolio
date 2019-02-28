@@ -1,9 +1,3 @@
-.section_skillset {
-  //background-image: url(../../assets/Background_Skillset.svg);
-  background-color: black;
-  color: #ffffff;
-}
-
 .skillset_skill {
   margin-top: 0.3rem;
   display: flex;
@@ -18,4 +12,8 @@
 
 .btn-icon {
   margin-right: 0.3rem;
+}
+
+.skillset__skill_list {
+  margin-top: 1rem;
 }

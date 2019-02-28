@@ -20,7 +20,13 @@ class ContactForm extends Component {
     ...props
   }) => (
     <div className="contact_form__input-group">
-      <input name={name} id={'frm' + name} {...field} {...props} />
+      <input
+        name={name}
+        id={'frm' + name}
+        {...field}
+        {...props}
+        className={`${touched[name] ? 'touched' : ''}`}
+      />
       <span
         className={`contact_form__input-group-bar ${
           touched[name] && errors[name] ? 'error' : ''
@@ -36,7 +42,13 @@ class ContactForm extends Component {
     ...props
   }) => (
     <div className="contact_form__input-group">
-      <textarea name={name} id={'frm' + name} {...field} {...props} />
+      <textarea
+        name={name}
+        id={'frm' + name}
+        {...field}
+        {...props}
+        className={`${touched[name] ? 'touched' : ''}`}
+      />
       <span
         className={`contact_form__input-group-bar textarea ${
           touched[name] && errors[name] ? 'error' : ''

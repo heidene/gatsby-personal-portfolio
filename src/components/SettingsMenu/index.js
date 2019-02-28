@@ -64,9 +64,6 @@ class SettingsMenu extends React.Component {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    if (this.props.onlyFreescroll && this.props.scrollLocked) {
-      this.props.setScrollLock(false);
-    }
     if (prevState.open !== this.state.open) {
       if (this.state.open) {
         this._openAnimation();
@@ -240,12 +237,26 @@ SettingsMenu.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  const { index, maxIndex } = state.indexState;
+  const {
+    indexState: { index, maxIndex },
+    ui: { scrollLocked, verticalHeight },
+  } = state;
   const elevated = index === maxIndex ? true : false;
+  let onlyFreescroll = false;
+  if (verticalHeight <= 700) {
+    onlyFreescroll = true;
+  } else {
+    if ('ontouchstart' in document.documentElement) {
+      if (verticalHeight <= 1000) {
+        onlyFreescroll = true;
+      }
+    }
+  }
   return {
-    scrollLocked: state.ui.scrollLocked,
+    scrollLocked: scrollLocked,
     language: state.locales.lang,
     elevated: elevated,
+    onlyFreescroll,
   };
 };
 
@@ -256,7 +267,6 @@ const enhancer = compose(
     ),
     withSizes(({ height }) => ({
       isHeightMini: height <= 568,
-      onlyFreescroll: height <= 660,
     }))
 );
 
